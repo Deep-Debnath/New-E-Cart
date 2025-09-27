@@ -8,7 +8,7 @@ import {
   Typography,
 } from "@mui/material";
 
-import { categories } from "../files/files";
+import { categories } from "../../public/files";
 import Image from "next/image";
 import Carousel from "@/app/assets/carousel";
 
