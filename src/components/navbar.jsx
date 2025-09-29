@@ -6,7 +6,6 @@ import {
   InputAdornment,
   TextField,
   Typography,
-  Button,
   Modal,
 } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
@@ -121,9 +120,9 @@ export default function Navbar() {
   return (
     <Grid
       container
-      className="w-full h-12 bg-cyan-50 grid grid-cols-12 grid-rows-1"
+      className="w-full h-12 bg-[#fff7d8] grid grid-cols-12 grid-rows-1"
     >
-      <Grid sx={{flexGrow:1}}>
+      <Grid sx={{ flexGrow: 1 }}>
         <Box display="flex" alignItems="center" padding=".7rem" color="#287fff">
           <ShoppingCart fontSize="medium" />
           <Typography>E-cart</Typography>
@@ -164,19 +163,19 @@ export default function Navbar() {
             </IconButton>
           </Box>
           <Box>
-            <Typography variant="button" color="initial">
+            <Typography variant="button" color="#30448c">
               cart
             </Typography>
             <IconButton aria-label="cart">
-              <ShoppingCart />
+              <ShoppingCart sx={{ color: "#30448c" }} />
             </IconButton>
           </Box>
           <Box>
-            <Typography variant="button" color="initial">
+            <Typography variant="button" color="#30448c">
               login
             </Typography>
             <IconButton aria-label="profile">
-              <Person />
+              <Person sx={{ color: "#30448c" }} />
             </IconButton>
           </Box>
         </Box>

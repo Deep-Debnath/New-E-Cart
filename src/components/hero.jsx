@@ -15,7 +15,7 @@ import Carousel from "@/app/assets/carousel";
 export default function Hero() {
   return (
     <>
-      <div className="h-76 bg-cyan-100 w-full p-2">
+      <div className="h-76 bg-gradient-to-br from-amber-50 to-yellow-100 w-full p-2">
         <div className="h-full grid grid-flow-row gap-2 grid-rows-8">
           <div className="row-span-2 overflow-x-auto overflow-y-hidden scrollbar-none">
             <div className="flex gap-2 w-max">
@@ -24,14 +24,17 @@ export default function Hero() {
                   <Card
                     className="row-span-1"
                     sx={{
+                      
+                      boxShadow:"none",
+                      border:"none",
                       width: {
                         lg: "231px",
                         md: "186px",
                         sm: "170px",
                         xs: "160px",
                       },
-                      borderRadius: 2,
-                      boxShadow: 2,
+                      // borderRadius: 2,
+                      // boxShadow: 2,
                       "&:hover": { boxShadow: 4, transform: "scale(1.02)" },
                       transition: "0.3s",
                     }}

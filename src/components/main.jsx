@@ -2,11 +2,12 @@ import { products } from "../../public/files";
 import Typography from "@mui/material/Typography";
 import { Card, CardContent, CardMedia } from "@mui/material";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Main() {
   return (
     <>
-      <div className="w-full h-full bg-cyan-100 px-2">
+      <div className="w-full h-full bg-gradient-to-br from-amber-50 to-yellow-100 px-2">
         <div className="bg-white w-full rounded-lg shadow-md">
           <Typography
             variant="h6"
@@ -46,24 +47,32 @@ export default function Main() {
                     width={140}
                     alt={item.name}
                     src={item.image}
-                    className="object-contain"
+                    className="object-contain transition-transform hover:scale-108"
                   />
                 </CardMedia>
-
                 <CardContent className="p-2">
                   <Typography variant="body2" color="#404040" fontWeight="500">
-                    from {item.price}
+                    ₹{item.price}
                   </Typography>
                   <Typography
                     variant="body1"
                     color="secondary"
                     sx={{ fontWeight: "bold" }}
                   >
-                    {item.name}
+                    <Link
+                      href={`/product/${item.category}/${
+                        item.id
+                      }/${encodeURIComponent(item.name)}`}
+                    >
+                      {item.name}
+                    </Link>
                   </Typography>
                 </CardContent>
               </Card>
             ))}
+          </div>
+          <div className="text-black w-full flex justify-center p-2 ">
+            <p className="hover:text-red-500 cursor-pointer">see more »</p>
           </div>
         </div>
       </div>

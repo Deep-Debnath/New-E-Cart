@@ -21,9 +21,9 @@ export const carousel = [
 export const products = [
   {
     id: 1,
-    name: "Wireless Headphones",
+    name: "Wireless-Headphones",
     description: "Noise-cancelling over-ear headphones with 30h battery life.",
-    price: 99.99,
+    price: 899,
     image: "/images/headphone.jpg",
     category: "Electronics",
     rating: 4.5,
@@ -34,7 +34,7 @@ export const products = [
     name: "Smartphone",
     description:
       "Latest Android smartphone with 128GB storage and AMOLED display.",
-    price: 699.0,
+    price: 12999,
     image: "/images/smartphone.webp",
     category: "Electronics",
     rating: 4.7,
@@ -42,9 +42,9 @@ export const products = [
   },
   {
     id: 3,
-    name: "Sports Shoes",
+    name: "Sports-Shoes",
     description: "Lightweight running shoes for men with breathable mesh.",
-    price: 59.5,
+    price: 1299,
     image: "/images/sport-shoes.jpg",
     category: "Fashion",
     rating: 4.3,
@@ -52,10 +52,10 @@ export const products = [
   },
   {
     id: 4,
-    name: "Office Chair",
+    name: "Office-Chair",
     description:
       "Ergonomic office chair with lumbar support and adjustable height.",
-    price: 149.99,
+    price: 3999,
     image: "/images/office-chair.webp",
     category: "Furniture",
     rating: 4.6,
@@ -63,9 +63,9 @@ export const products = [
   },
   {
     id: 5,
-    name: "Coffee Maker",
+    name: "Coffee-Maker",
     description: "Programmable drip coffee maker with reusable filter.",
-    price: 39.99,
+    price: 2899,
     image: "/images/coffeemaker.webp",
     category: "Home Appliances",
     rating: 4.2,
@@ -75,7 +75,7 @@ export const products = [
     id: 6,
     name: "Backpack",
     description: "Durable travel backpack with multiple compartments.",
-    price: 45.0,
+    price: 499,
     image: "/images/bag.jpg",
     category: "Accessories",
     rating: 4.4,
@@ -83,9 +83,9 @@ export const products = [
   },
   {
     id: 7,
-    name: "Gaming Laptop",
+    name: "Gaming-Laptop",
     description: "High-performance laptop with RTX graphics and 16GB RAM.",
-    price: 1299.99,
+    price: 41999,
     image: "/images/laptop.jpg",
     category: "Electronics",
     rating: 4.8,
@@ -93,9 +93,9 @@ export const products = [
   },
   {
     id: 8,
-    name: "Wrist Watch",
+    name: "Wrist-Watch",
     description: "Water-resistant analog wrist watch with leather strap.",
-    price: 79.99,
+    price: 2199,
     image: "/images/watch.webp",
     category: "Fashion",
     rating: 4.1,
@@ -103,9 +103,9 @@ export const products = [
   },
   {
     id: 9,
-    name: "Electric Kettle",
+    name: "Electric-Kettle",
     description: "1.5L stainless steel kettle with auto shut-off feature.",
-    price: 24.99,
+    price: 1199,
     image: "/images/kettle.webp",
     category: "Home Appliances",
     rating: 4.3,
@@ -115,7 +115,7 @@ export const products = [
     id: 10,
     name: "Sunglasses",
     description: "UV-protection stylish sunglasses for men and women.",
-    price: 29.99,
+    price: 399,
     image: "/images/sunglass.jpg",
     category: "Accessories",
     rating: 4.0,
@@ -125,7 +125,7 @@ export const products = [
     id: 11,
     name: "Bookshelf",
     description: "5-tier wooden bookshelf with modern design.",
-    price: 119.0,
+    price: 599,
     image: "/images/book-shelves.jpg",
     category: "Furniture",
     rating: 4.5,
@@ -133,12 +133,47 @@ export const products = [
   },
   {
     id: 12,
-    name: "Bluetooth Speaker",
+    name: "Bluetooth-Speaker",
     description: "Portable speaker with deep bass and 10h playtime.",
-    price: 55.0,
+    price: 1299,
     image: "/images/bluetooth-speaker.webp",
     category: "Electronics",
     rating: 4.6,
     stock: 22,
+  },
+];
+// console.log(products[0].id)
+// footer >>
+export const footerItems = [
+  {
+    title: "Company",
+    links: [
+      { name: "About Us", href: "/about" },
+      { name: "Careers", href: "/careers" },
+      { name: "Contact", href: "/contact" },
+    ],
+  },
+  {
+    title: "Support",
+    links: [
+      { name: "Help Center", href: "/help" },
+      { name: "Returns", href: "/returns" },
+      { name: "Shipping Info", href: "/shipping" },
+    ],
+  },
+  {
+    title: "Legal",
+    links: [
+      { name: "Privacy Policy", href: "/privacy" },
+      { name: "Terms & Conditions", href: "/terms" },
+    ],
+  },
+  {
+    title: "Follow Us",
+    links: [
+      { name: "Facebook", href: "https://facebook.com" },
+      { name: "Instagram", href: "https://instagram.com" },
+      { name: "Twitter", href: "https://twitter.com" },
+    ],
   },
 ];

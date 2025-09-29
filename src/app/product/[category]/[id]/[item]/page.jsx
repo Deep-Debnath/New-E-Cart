@@ -1,0 +1,53 @@
+import Image from "next/image";
+import { products } from "../../../../../../public/files";
+import {  ShoppingCart } from "@mui/icons-material";
+import {  Rating } from "@mui/material";
+
+export default async function Productspage({ params }) {
+  const product = products[params.id - 1];
+
+  return (
+    <div className="min-h-screen w-full bg-gradient-to-br from-amber-50 to-yellow-100 flex items-center justify-center p-1 md:p-3 lg:p-4 xl:p-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 bg-white shadow-xl rounded-2xl p-6 w-full max-w-5xl">
+        <div className="flex items-center justify-center">
+          <div className="overflow-hidden rounded-xl shadow-md">
+            <Image
+              height={500}
+              width={500}
+              src={product.image}
+              alt={product.name}
+              className="transition-transform duration-300 hover:scale-105"
+            />
+          </div>
+        </div>
+
+        <div className="flex flex-col justify-center">
+          <h2 className="text-2xl font-bold mb-3 text-gray-800">
+            {product.name}
+          </h2>
+          <Rating
+            value={product.rating}
+            precision={0.1}
+            size="small"
+            readOnly
+          />
+          <p className="text-gray-600 mb-4">
+            {product.description ||
+              "This is a high-quality product that you’ll love."}
+          </p>
+          <p className="text-3xl font-semibold text-amber-500 mb-6">
+            ₹{product.price}
+          </p>
+          <div className="flex gap-4">
+            <button className="px-5 py-2 flex items-center gap-2 text-sm font-bold text-white rounded-md bg-amber-400 hover:bg-amber-500 transition transform hover:scale-105">
+              <ShoppingCart fontSize="small" /> ADD TO CART
+            </button>
+            <button className="px-5 py-2 text-sm font-bold text-white rounded-md bg-blue-600 hover:bg-blue-700 transition transform hover:scale-105">
+              BUY NOW
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
