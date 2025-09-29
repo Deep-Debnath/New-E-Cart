@@ -6,7 +6,8 @@ import {  Rating } from "@mui/material";
 export default async function Productspage({ params }) {
   const product = products[params.id - 1];
 
-  return (
+  return (<>
+    
     <div className="min-h-screen w-full bg-gradient-to-br from-amber-50 to-yellow-100 flex items-center justify-center p-1 md:p-3 lg:p-4 xl:p-5">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 bg-white shadow-xl rounded-2xl p-6 w-full max-w-5xl">
         <div className="flex items-center justify-center">
@@ -49,5 +50,6 @@ export default async function Productspage({ params }) {
         </div>
       </div>
     </div>
+  </>
   );
 }

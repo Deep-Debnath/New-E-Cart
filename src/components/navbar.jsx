@@ -7,9 +7,11 @@ import {
   TextField,
   Typography,
   Modal,
+  Badge,
 } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Cart from "./cart";
 
 const Useblemodel = ({ open, setopen }) => {
   const input = useRef(null);
@@ -97,7 +99,7 @@ const Useblemodel = ({ open, setopen }) => {
                       <IconButton
                         aria-label="search"
                         onClick={() => {
-                          console.log(inp);
+                          console.log("💀");
                         }}
                       >
                         <Search sx={{ color: "#2874F0" }} />
@@ -116,6 +118,7 @@ const Useblemodel = ({ open, setopen }) => {
 
 export default function Navbar() {
   const [open, setopen] = useState(false);
+  const [isopencart, setisopencart] = useState(false);
 
   return (
     <Grid
@@ -166,8 +169,10 @@ export default function Navbar() {
             <Typography variant="button" color="#30448c">
               cart
             </Typography>
-            <IconButton aria-label="cart">
-              <ShoppingCart sx={{ color: "#30448c" }} />
+            <IconButton aria-label="cart" onClick={() => setisopencart(true)}>
+              <Badge badgeContent={2} color="primary">
+                <ShoppingCart sx={{ color: "#30448c" }} />
+              </Badge>
             </IconButton>
           </Box>
           <Box>
@@ -181,6 +186,7 @@ export default function Navbar() {
         </Box>
       </Grid>
       {open ? <Useblemodel setopen={setopen} open={open} /> : null}
+      {isopencart ? <Cart cart={isopencart} setcart={setisopencart} /> : null}
     </Grid>
   );
 }
