@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const cartSlice = createSlice({
-  name: "cart items",
+  name: "cart",
   initialState: [],
   reducers: {
     additem: (state, action) => {
@@ -10,9 +10,7 @@ const cartSlice = createSlice({
     removeitem: (state, action) => {
       return state.filter((item) => item.id !== action.payload);
     },
-    clearcart: () => {
-      return [];
-    },
+    
   },
 });
 

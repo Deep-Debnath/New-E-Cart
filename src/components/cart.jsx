@@ -1,7 +1,17 @@
-import { ShoppingCart, ShoppingCartCheckout } from "@mui/icons-material";
-import { Box, Button, Modal, Typography } from "@mui/material";
+import { removeitem } from "@/redux/slices/cart";
+import { Close, Delete, ShoppingCart, ShoppingCartCheckout } from "@mui/icons-material";
+import { Box, Button, Modal, Typography, IconButton } from "@mui/material";
+import Image from "next/image";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Cart({ cart, setcart }) {
+  const value = useSelector((state) => state.cart);
+  const dispatch=useDispatch();
+  const totalprice = () => {
+    const price = value.reduce((acc, item) => acc + item.price, 0);
+    return price === 0 ? "" : "₹" + price;
+  };
+
   return (
     <Modal
       open={cart}
@@ -47,6 +57,11 @@ export default function Cart({ cart, setcart }) {
             My Cart
           </Typography>
           <ShoppingCart color="primary" />
+          <Box sx={{ position: "absolute", right: "10px" }}>
+            <IconButton aria-label="close modal" onClick={() => setcart(false)}>
+              <Close sx={{ color: "red" }} />
+            </IconButton>
+          </Box>
         </Box>
 
         <Box
@@ -57,15 +72,56 @@ export default function Cart({ cart, setcart }) {
             borderRadius: 1,
             p: 1,
           }}
-        ></Box>
+        >
+          <ul>
+            {value.length !== 0 ? (
+              value.map((item) => (
+                <li className="text-black border-b-2 border-b-gray-300 py-2 grid grid-cols-3" key={item.id}>
+                  <div className="flex justify-center">
+                    <Image
+                      height={70}
+                      width={70}
+                      alt={item.name}
+                      src={item.image}
+                    />
+                  </div>
+                  <div className="overflow-hidden">
+                    <h3 className="text-nowrap marquee-text text-gray-900">
+                      {item.name}
+                    </h3>
+                    <h4 className="text-gray-600">₹{item.price}</h4>
+                  </div>
+                  <div className="flex justify-center items-center">
+                    <Button
+                      variant="contained"
+                      endIcon={<Delete/>}
+                      sx={{ bgcolor: "red", fontSize: ".7rem", px: 1, py: 0.5 ,fontWeight:600}}
+                      onClick={()=>dispatch(removeitem(item.id))}
+                    >
+                      remove
+                    </Button>
+                    
+                  </div>
+                </li>
+              ))
+            ) : (
+              <p className="text-gray-600 text-center">cart empty</p>
+            )}
+          </ul>
+        </Box>
         <Box
           sx={{
             mt: 2,
             textAlign: "center",
           }}
         >
-          <Button variant="contained" sx={{cursor:"pointer"}} endIcon={<ShoppingCartCheckout/>} color="success">
-            Checkout
+          <Button
+            variant="contained"
+            sx={{ cursor: "pointer" }}
+            endIcon={<ShoppingCartCheckout />}
+            color="success"
+          >
+            Checkout {totalprice()}
           </Button>
         </Box>
       </Box>

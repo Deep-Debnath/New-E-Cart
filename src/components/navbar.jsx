@@ -12,6 +12,7 @@ import {
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Cart from "./cart";
+import { useSelector } from "react-redux";
 
 const Useblemodel = ({ open, setopen }) => {
   const input = useRef(null);
@@ -119,6 +120,7 @@ const Useblemodel = ({ open, setopen }) => {
 export default function Navbar() {
   const [open, setopen] = useState(false);
   const [isopencart, setisopencart] = useState(false);
+  const badgeviwe = useSelector((state) => state.cart);
 
   return (
     <Grid
@@ -170,8 +172,8 @@ export default function Navbar() {
               cart
             </Typography>
             <IconButton aria-label="cart" onClick={() => setisopencart(true)}>
-              <Badge badgeContent={2} color="primary">
-                <ShoppingCart sx={{ color: "#30448c" }} />
+              <Badge badgeContent={badgeviwe.length} color="primary">
+                <ShoppingCart sx={{ color: "#85116A" }} />
               </Badge>
             </IconButton>
           </Box>
@@ -180,7 +182,7 @@ export default function Navbar() {
               login
             </Typography>
             <IconButton aria-label="profile">
-              <Person sx={{ color: "#30448c" }} />
+              <Person sx={{ color: "#85116A" }} />
             </IconButton>
           </Box>
         </Box>

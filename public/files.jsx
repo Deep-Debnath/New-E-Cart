@@ -21,7 +21,7 @@ export const carousel = [
 export const products = [
   {
     id: 1,
-    name: "Wireless-Headphones",
+    name: "Wireless-Headphone",
     description: "Noise-cancelling over-ear headphones with 30h battery life.",
     price: 899,
     image: "/images/headphone.jpg",
@@ -42,7 +42,7 @@ export const products = [
   },
   {
     id: 3,
-    name: "Sports-Shoes",
+    name: "Sports-Shoe",
     description: "Lightweight running shoes for men with breathable mesh.",
     price: 1299,
     image: "/images/sport-shoes.jpg",
@@ -113,10 +113,10 @@ export const products = [
   },
   {
     id: 10,
-    name: "Sunglasses",
+    name: "Sunglasse",
     description: "UV-protection stylish sunglasses for men and women.",
     price: 399,
-    image: "/images/sunglass.jpg",
+    image: "/images/sunglass.webp",
     category: "Accessories",
     rating: 4.0,
     stock: 40,

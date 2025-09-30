@@ -30,3 +30,23 @@ body {
 .scrollbar-none::-webkit-scrollbar {
   display: none; 
 }
+
+
+.marquee-text {
+  display: inline-block;
+  padding-left: 100%;       /* start from right */
+  font-size: 1rem;
+  font-weight: 600;
+  color: #b45309;
+  animation: marquee 6s linear infinite;
+}
+
+/* smoother animation */
+@keyframes marquee {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
