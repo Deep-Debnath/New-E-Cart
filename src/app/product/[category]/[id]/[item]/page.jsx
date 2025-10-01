@@ -7,7 +7,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { additem } from "@/redux/slices/cart";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import Alert from "@/components/alertonadd";
+import Alertbox from "@/components/alertonadd";
+import Placeorder from "@/components/orderplace";
 
 export default function Productspage({ params }) {
   const { id } = React.use(params);
@@ -16,9 +17,12 @@ export default function Productspage({ params }) {
   const router = useRouter();
   const cart = useSelector((state) => state.cart);
   const isincart = cart.find((item) => item.id === product.id);
+  const [alert, setalert] = useState(false);
+  const [order, setorder] = useState(false);
   const handleadd = () => {
     if (!isincart) {
       dispatch(additem(product));
+      setalert(true);
     } else {
       router.push("/");
     }
@@ -52,7 +56,7 @@ export default function Productspage({ params }) {
             />
             <p className="text-gray-600 mb-4">
               {product.description ||
-                "This is a high-quality product that you’ll love."}
+                "This is a high-quality product that you'll love."}
             </p>
             <p className="text-3xl font-semibold text-amber-500 mb-6">
               ₹{product.price}
@@ -65,12 +69,16 @@ export default function Productspage({ params }) {
                 {isincart ? <ArrowBack /> : <ShoppingCart fontSize="small" />}
                 {isincart ? "GO BACK" : " ADD TO CART"}
               </button>
-              <button className="px-5 py-2 text-sm font-bold text-white rounded-md bg-blue-600 hover:bg-blue-700 transition transform active:scale-95 hover:scale-105">
+              <button onClick={()=>setorder(true)} className="px-5 py-2 text-sm font-bold text-white rounded-md bg-blue-600 hover:bg-blue-700 transition transform active:scale-95 hover:scale-105">
                 BUY NOW
               </button>
             </div>
           </div>
         </div>
+        {alert && (
+          <Alertbox setalert={setalert} alert={alert} product={product.name} />
+        )}
+        {order && <Placeorder setorder={setorder} order={order} />}
       </div>
     </>
   );

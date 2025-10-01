@@ -1,12 +1,20 @@
 import { removeitem } from "@/redux/slices/cart";
-import { Close, Delete, ShoppingCart, ShoppingCartCheckout } from "@mui/icons-material";
+import {
+  Close,
+  Delete,
+  ShoppingCart,
+  ShoppingCartCheckout,
+} from "@mui/icons-material";
 import { Box, Button, Modal, Typography, IconButton } from "@mui/material";
 import Image from "next/image";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import Placeorder from "./orderplace";
 
 export default function Cart({ cart, setcart }) {
   const value = useSelector((state) => state.cart);
-  const dispatch=useDispatch();
+  const dispatch = useDispatch();
+  const [order, setorder] = useState(false);
   const totalprice = () => {
     const price = value.reduce((acc, item) => acc + item.price, 0);
     return price === 0 ? "" : "₹" + price;
@@ -64,6 +72,8 @@ export default function Cart({ cart, setcart }) {
           </Box>
         </Box>
 
+        {order && <Placeorder setorder={setorder} order={order} />}
+
         <Box
           sx={{
             flexGrow: 1,
@@ -76,7 +86,10 @@ export default function Cart({ cart, setcart }) {
           <ul>
             {value.length !== 0 ? (
               value.map((item) => (
-                <li className="text-black border-b-2 border-b-gray-300 py-2 grid grid-cols-3" key={item.id}>
+                <li
+                  className="text-black border-b-2 border-b-gray-300 py-2 grid grid-cols-3"
+                  key={item.id}
+                >
                   <div className="flex justify-center">
                     <Image
                       height={70}
@@ -94,13 +107,18 @@ export default function Cart({ cart, setcart }) {
                   <div className="flex justify-center items-center">
                     <Button
                       variant="contained"
-                      endIcon={<Delete/>}
-                      sx={{ bgcolor: "red", fontSize: ".7rem", px: 1, py: 0.5 ,fontWeight:600}}
-                      onClick={()=>dispatch(removeitem(item.id))}
+                      endIcon={<Delete />}
+                      sx={{
+                        bgcolor: "red",
+                        fontSize: ".7rem",
+                        px: 1,
+                        py: 0.5,
+                        fontWeight: 600,
+                      }}
+                      onClick={() => dispatch(removeitem(item.id))}
                     >
                       remove
                     </Button>
-                    
                   </div>
                 </li>
               ))
@@ -120,6 +138,9 @@ export default function Cart({ cart, setcart }) {
             sx={{ cursor: "pointer" }}
             endIcon={<ShoppingCartCheckout />}
             color="success"
+            onClick={() => {
+              value.length !== 0 ? setorder(true) : null;
+            }}
           >
             Checkout {totalprice()}
           </Button>
