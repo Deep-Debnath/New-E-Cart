@@ -1,4 +1,3 @@
-"use client";
 import { ShoppingCart, Search, Person } from "@mui/icons-material";
 import {
   Box,
