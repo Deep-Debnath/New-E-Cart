@@ -15,9 +15,9 @@ import Carousel from "@/app/assets/carousel";
 export default function Hero() {
   return (
     <>
-      <div className="h-76 pt-12 bg-gradient-to-br from-amber-50 to-yellow-100 w-full p-2">
-        <div className="h-full grid grid-flow-row gap-2 grid-rows-8">
-          <div className="row-span-2 overflow-x-auto overflow-y-hidden scrollbar-none">
+      <div className="h-90 pt-12 bg-gradient-to-br from-amber-50 to-yellow-100 w-full p-2">
+        <div className="h-full grid grid-flow-row gap-2 grid-rows-12">
+          <div className="row-span-3 overflow-x-auto overflow-y-hidden scrollbar-none">
             <div className="flex gap-2 w-max">
               {categories.map((item) => (
                 <Box key={item.key}>
@@ -59,7 +59,6 @@ export default function Hero() {
                           alt={item.key}
                           fill
                           priority
-                          sizes="max"
                           style={{
                             objectFit: "cover",
                             borderRadius: "15px",
@@ -80,7 +79,7 @@ export default function Hero() {
               ))}
             </div>
           </div>
-          <div className="row-span-6 w-full">
+          <div className="row-span-9 w-full">
             <Carousel />
           </div>
         </div>
