@@ -1,3 +1,4 @@
+"use client";
 import { ShoppingCart, Search, Person } from "@mui/icons-material";
 import {
   Box,
@@ -12,12 +13,21 @@ import {
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Cart from "./cart";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { clearitem, searchitem } from "@/redux/slices/search";
+import SearchModal from "./searchmodal";
+import Searchinsmall from "./searchinsmall";
 
 const Useblemodel = ({ open, setopen }) => {
   const input = useRef(null);
   const [animate, setanimate] = useState(true);
-  const [inp, setinp] = useState("");
+  const search = useSelector((state) => state.search);
+  const dispatch = useDispatch();
+
+  const handlesearch = (para) => {
+    const value = para.trim();
+    value ? dispatch(searchitem(value)) : dispatch(clearitem());
+  };
 
   useEffect(() => {
     if (open && input.current) {
@@ -35,6 +45,7 @@ const Useblemodel = ({ open, setopen }) => {
 
   const handleClose = () => {
     setanimate(false);
+    dispatch(clearitem());
     setTimeout(() => {
       setopen(false);
       setanimate(true);
@@ -72,8 +83,8 @@ const Useblemodel = ({ open, setopen }) => {
                 placeholder="Search for products..."
                 variant="outlined"
                 fullWidth
-                onChange={(e) => setinp(e.target.value)}
-                value={inp}
+                onChange={(e) => handlesearch(e.target.value)}
+                // value={inp}
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
                     e.preventDefault();
@@ -112,6 +123,7 @@ const Useblemodel = ({ open, setopen }) => {
             </motion.div>
           )}
         </AnimatePresence>
+        {search && open ? <Searchinsmall search={search} />: null}
       </Box>
     </Modal>
   );
@@ -121,11 +133,18 @@ export default function Navbar() {
   const [open, setopen] = useState(false);
   const [isopencart, setisopencart] = useState(false);
   const badgeviwe = useSelector((state) => state.cart);
+  const search = useSelector((state) => state.search);
+  const dispatch = useDispatch();
+
+  const handlesearch = (para) => {
+    const value = para.trim();
+    value ? dispatch(searchitem(value)) : dispatch(clearitem());
+  };
 
   return (
     <Grid
       container
-      className="w-full h-12 bg-[#fff7d8] grid grid-cols-12 grid-rows-1"
+      className="w-full fixed z-1 h-12 bg-[#fff7d8] grid grid-cols-12 grid-rows-1"
     >
       <Grid sx={{ flexGrow: 1 }}>
         <Box display="flex" alignItems="center" padding=".7rem" color="#287fff">
@@ -139,6 +158,7 @@ export default function Navbar() {
             variant="outlined"
             placeholder="Search products"
             fullWidth
+            onChange={(e) => handlesearch(e.target.value)}
             sx={{
               display: { xs: "none", sm: "block" },
               "& .MuiOutlinedInput-root": {
@@ -189,6 +209,7 @@ export default function Navbar() {
       </Grid>
       {open ? <Useblemodel setopen={setopen} open={open} /> : null}
       {isopencart ? <Cart cart={isopencart} setcart={setisopencart} /> : null}
+      {search && !open ? <SearchModal search={search} /> : null}
     </Grid>
   );
 }

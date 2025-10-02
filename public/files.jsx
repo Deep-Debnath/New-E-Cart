@@ -172,7 +172,7 @@ export const footerItems = [
     title: "Follow Us",
     links: [
       { name: "Facebook", href: "https://facebook.com" },
-      { name: "Instagram", href: "https://instagram.com" },
+      { name: "Instagram", href: "https://www.instagram.com/debnathdeep766?utm_source=qr&igsh=cnY0aHdvN2MyaHI2" },
       { name: "Twitter", href: "https://twitter.com" },
     ],
   },

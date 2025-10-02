@@ -15,7 +15,7 @@ import Carousel from "@/app/assets/carousel";
 export default function Hero() {
   return (
     <>
-      <div className="h-76 bg-gradient-to-br from-amber-50 to-yellow-100 w-full p-2">
+      <div className="h-76 pt-12 bg-gradient-to-br from-amber-50 to-yellow-100 w-full p-2">
         <div className="h-full grid grid-flow-row gap-2 grid-rows-8">
           <div className="row-span-2 overflow-x-auto overflow-y-hidden scrollbar-none">
             <div className="flex gap-2 w-max">
