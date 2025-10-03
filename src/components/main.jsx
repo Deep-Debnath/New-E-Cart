@@ -24,6 +24,10 @@ export default function Main() {
           <div className="grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 p-3">
             {products.map((item) => (
               <Card
+                component={Link}
+                href={`/product/${item.category}/${
+                  item.id
+                }/${encodeURIComponent(item.name)}`}
                 key={item.id}
                 sx={{
                   cursor: "pointer",
@@ -59,13 +63,7 @@ export default function Main() {
                     color="secondary"
                     sx={{ fontWeight: "bold" }}
                   >
-                    <Link
-                      href={`/product/${item.category}/${
-                        item.id
-                      }/${encodeURIComponent(item.name)}`}
-                    >
-                      {item.name}
-                    </Link>
+                    {item.name}
                   </Typography>
                 </CardContent>
               </Card>

@@ -1,3 +1,6 @@
+import axios from "axios";
+import { useState } from "react";
+
 // categories >>
 export const categories = [
   { key: "Mobiles", src: "/images/mobile.jpg" },
@@ -16,8 +19,16 @@ export const carousel = [
   { key: "c4", src: "/images/c4.jpeg", alt: "Carousel 4" },
   { key: "c5", src: "/images/c5.jpg", alt: "Carousel 5" },
 ];
-
-// products >>
+// testube>>
+// async function De() {
+  //   const res = await axios.get("https://dummyjson.com/products");
+  //   const data = await res.data.products;
+  //   data.map((item)=>console.log(item.title))
+  //   return data.title;
+  // }
+  
+  // // export const products =await De();
+  // products >>
 export const products = [
   {
     id: 1,
@@ -141,9 +152,10 @@ export const products = [
     rating: 4.6,
     stock: 22,
   },
+  // De(),
 ];
-// console.log(products[0].id)
 // footer >>
+
 export const footerItems = [
   {
     title: "Company",
@@ -172,7 +184,10 @@ export const footerItems = [
     title: "Follow Us",
     links: [
       { name: "Facebook", href: "https://facebook.com" },
-      { name: "Instagram", href: "https://www.instagram.com/debnathdeep766?utm_source=qr&igsh=cnY0aHdvN2MyaHI2" },
+      {
+        name: "Instagram",
+        href: "https://www.instagram.com/debnathdeep766?utm_source=qr&igsh=cnY0aHdvN2MyaHI2",
+      },
       { name: "Twitter", href: "https://twitter.com" },
     ],
   },
