@@ -1,28 +1,76 @@
-# New-E-Cart 🛒
+# 🛒 E-Cart | Shopping App
 
-A modern e-commerce web app built with Next.js, Redux Toolkit, Framer Motion, Tailwind CSS, and Material UI.
+A modern **E-Commerce Web App** built with **Next.js**, offering a smooth shopping experience with dynamic product pages, cart functionality, and a clean responsive UI.  
+Built to demonstrate my frontend skills using modern frameworks and practices.
 
-## 🚀 Demo
-[Live Site](https://new-e-cart.vercel.app/)
+---
 
-![Screenshot](./public/images/Screenshot%202025-10-03%20132427.png)
+## 🚀 Live Demo
+
+🔗 **[View E-Cart App](https://new-e-cart.vercel.app/)**
+
+---
 
 ## ✨ Features
-- Shopping cart with Redux Toolkit
-- Responsive UI with Tailwind CSS & MUI
-- Dynamic search
 
-## 🛠️ Tech Stack
-- Next.js
-- Material UI
-- Redux Toolkit
-- Axios
-- Tailwind CSS
-- Framer Motion
+- ⚡ **Built with Next.js (App Router)**
+- 🧭 **SEO-friendly pages** using `metadata`
+- 🛍️ **Dynamic product listing** and details pages
+- 🧾 **Add to cart / Remove from cart** functionality
+- 💾 **LocalStorage persistence** for cart items
+- 📱 **Fully responsive** design
+- 🎨 Styled with **TailwindCSS**
+- 🔄 **Reusable components** and modular structure
+- 🌐 **Deployed on Vercel**
 
-## ⚙️ Installation
+---
 
-Clone the repo:
+## 🏗️ Tech Stack
+
+| Category             | Technologies                 |
+| -------------------- | ---------------------------- |
+| **Framework**        | Next.js                      |
+| **Styling**          | TailwindCSS & Material Ui    |
+| **State Management** | useState / Context API       |
+| **Data**             | Static JSON / API simulation |
+| **Deployment**       | Vercel                       |
+| **Version Control**  | Git + GitHub                 |
+
+---
+
+## ⚙️ Setup and Run Locally
+
 ```bash
-git clone https://github.com/Deepvai/New-E-Cart.git
-cd New-E-Cart
+# Clone the repository
+git clone https://github.com/Deep-Debnath/New-E-Cart.git
+
+# Navigate to the app directory
+cd my-app
+
+# Install dependencies
+npm install
+
+# Run the development server
+npm run dev
+```
+
+Open http://localhost:3000 in your browser.
+
+---
+
+## 📸 Screenshots
+
+![Screenshot](./public/images/screenshot_1.png)
+![Screenshot](./public/images/screenshot_2.png)
+![Screenshot](./public/images/screenshot_3.png)
+![Screenshot](./public/images/screenshot_4.png)
+
+---
+
+## 🧑‍💻 Author
+
+**Deep Debnath**  
+Frontend Developer • React / Next.js / UI / AI Integration
+
+🌐 [Portfolio](https://my-portfolio-ob9g.vercel.app/)  
+💼 [GitHub](https://github.com/Deep-Debnath)

@@ -152,7 +152,6 @@ export const products = [
     rating: 4.6,
     stock: 22,
   },
-  // De(),
 ];
 // footer >>
 
