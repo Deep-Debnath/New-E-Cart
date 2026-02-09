@@ -31,7 +31,7 @@ Built to demonstrate my frontend skills using modern frameworks and practices.
 | -------------------- | ---------------------------- |
 | **Framework**        | Next.js                      |
 | **Styling**          | TailwindCSS & Material Ui    |
-| **State Management** | useState / Context API       |
+| **State Management** | Redux toolkit                |
 | **Data**             | Static JSON / API simulation |
 | **Deployment**       | Vercel                       |
 | **Version Control**  | Git + GitHub                 |
