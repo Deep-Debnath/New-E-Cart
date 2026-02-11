@@ -28,7 +28,7 @@ export const metadata = {
     "Products",
   ],
   authors: [
-    { name: "Deep Debnath", url: "https://my-portfolio-7432.vercel.app/" },
+    { name: "Deep Debnath", url:"https://deep-debnath-portfolio.vercel.app" },
   ],
   creator: "Deep Debnath",
   category: "E-commerce",
